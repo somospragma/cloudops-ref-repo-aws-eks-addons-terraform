@@ -57,3 +57,9 @@ variable "environment" {
     error_message = "El entorno debe ser uno de: dev, qa, pdn."
   }
 }
+
+variable "auto_mode_enabled" {
+  description = "Indica si el cluster tiene EKS Auto Mode habilitado (para validar addons incompatibles)"
+  type        = bool
+  default     = false
+}

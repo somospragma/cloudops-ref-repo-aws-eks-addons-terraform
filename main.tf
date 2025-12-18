@@ -1,3 +1,15 @@
+# Validación de addons incompatibles con Auto Mode
+resource "terraform_data" "validate_auto_mode_addons" {
+  count = length(local.invalid_addons_for_auto_mode) > 0 ? 1 : 0
+  
+  lifecycle {
+    precondition {
+      condition     = length(local.invalid_addons_for_auto_mode) == 0
+      error_message = "ERROR: Los siguientes addons son incompatibles con EKS Auto Mode y son gestionados automáticamente por AWS: ${join(", ", local.invalid_addons_for_auto_mode)}. Elimínalos de la configuración o deshabilita Auto Mode."
+    }
+  }
+}
+
 # Add-ons del cluster EKS
 resource "aws_eks_addon" "this" {
   provider = aws.project
