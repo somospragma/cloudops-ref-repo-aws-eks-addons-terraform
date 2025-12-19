@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2025-12-19
+
+### Changed
+- Actualizado comentario en `locals.tf` para clarificar addons gestionados por Auto Mode
+- Documentación mejorada basada en AWS Best Practices
+
 ## [2.0.0] - 2024-12-18
 
 ### Added

@@ -1,9 +1,10 @@
 locals {
-  # Addons incompatibles con EKS Auto Mode (gestionados automáticamente por AWS)
+  # Addons gestionados automáticamente por EKS Auto Mode (no deben instalarse manualmente)
+  # Fuente: https://docs.aws.amazon.com/eks/latest/best-practices/automode.html
   auto_mode_incompatible_addons = toset([
-    "karpenter",
-    "aws-load-balancer-controller",
-    "aws-ebs-csi-driver"
+    "karpenter",                    # Auto-scaling gestionado por Auto Mode
+    "aws-load-balancer-controller", # Load balancing gestionado por Auto Mode
+    "aws-ebs-csi-driver"           # Storage gestionado por Auto Mode (aunque el addon debe existir)
   ])
   
   # Aplanar la configuración de addons para facilitar su uso con for_each
