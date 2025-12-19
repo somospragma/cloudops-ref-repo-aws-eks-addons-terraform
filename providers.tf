@@ -1,10 +1,5 @@
 ###########################################
 #Terraform - Providers
 ###########################################
-terraform {
-  required_providers {
-    aws = {
-      configuration_aliases = [aws.project]
-    }
-  }
-}
+# Provider configuration is defined in versions.tf
+# This file is kept for PC-IAC-001 compliance (required file structure)
